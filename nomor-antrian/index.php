@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="h-100">
+<html lang="en" class="h-full">
 
 <head>
   <!-- Required meta tags -->
@@ -14,50 +14,35 @@
   <!-- Favicon icon -->
   <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-
-  <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
-
-  <!-- Custom Style -->
-  <link rel="stylesheet" href="../assets/css/style.css">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="d-flex flex-column h-100">
-  <main class="flex-shrink-0">
-    <div class="container pt-5">
-      <div class="row justify-content-lg-center">
-        <div class="col-lg-5 mb-4">
-          <div class="px-4 py-3 mb-4 bg-white rounded-2 shadow-sm">
+<body class="flex flex-col min-h-screen">
+  <main class="flex-grow">
+    <div class="container mx-auto pt-5">
+      <div class="flex justify-center">
+        <div class="w-full lg:w-1/3 mb-4">
+          <div class="p-4 bg-white rounded-md shadow-md mb-4">
             <!-- judul halaman -->
-            <div class="d-flex align-items-center me-md-auto">
-              <i class="bi bi-camera text-success me-3 fs-3"></i>
-              <h1 class="h5 pt-2">Harap Foto Nomor Antrian Setelah Menekan <b>Ambil Nomor!</b></h1>
-              
+            <div class="flex items-center">
+              <i class="bi bi-camera text-green-600 text-2xl mr-3"></i>
+              <h1 class="text-lg font-semibold">Harap Foto Nomor Antrian Setelah Menekan <b>Ambil Nomor!</b></h1>
             </div>
           </div>
 
-          <div class="card border-0 shadow-sm">
-            <div class="card-body text-center d-grid p-5">
-              <div class="border border-success rounded-2 py-2 mb-5">
-                <h3 class="pt-4">ANTRIAN</h3>
+          <div class="bg-white border border-gray-200 rounded-md shadow-md">
+            <div class="p-5 text-center grid">
+              <div class="border border-green-600 rounded-md py-2 mb-5">
+                <h3 class="text-xl pt-4">ANTRIAN</h3>
                 <!-- menampilkan informasi jumlah antrian -->
-                <h1 id="antrian" class="display-1 fw-bold text-success text-center lh-1 pb-2"></h1>
+                <h1 id="antrian" class="text-6xl font-bold text-green-600 leading-tight py-2"></h1>
               </div>
               <!-- button pengambilan nomor antrian -->
-              <a id="insert" href="javascript:void(0)" class="btn btn-success btn-block rounded-pill fs-5 px-5 py-4 mb-2">
-                <i class="bi bi-plus-circle fs-4 me-2"></i> Ambil Nomor
+              <a id="insert" href="javascript:void(0)" class="bg-green-600 text-white font-semibold rounded-full text-lg px-5 py-4 mb-2 inline-flex items-center justify-center">
+                <i class="bi bi-plus-circle text-xl mr-2"></i> Ambil Nomor
               </a>
-              <br> <p class="h5 pt-1"> <span id="tanggalwaktu"></span></p>
-<script>
-var dt = new Date();
-document.getElementById("tanggalwaktu").innerHTML = (("0"+dt.getDate()).slice(-2)) +"/"+ (("0"+(dt.getMonth()+1)).slice(-2)) +"/"+ (dt.getFullYear()) +"  "+ (("0"+dt.getHours()).slice(-2)) +":"+ (("0"+dt.getMinutes()).slice(-2));
-</script>
-
+              <p class="text-lg pt-1"> <span id="tanggalwaktu"></span></p>
             </div>
           </div>
         </div>
@@ -65,26 +50,27 @@ document.getElementById("tanggalwaktu").innerHTML = (("0"+dt.getDate()).slice(-2
     </div>
   </main>
 
-  <!-- Footer -->
-
-
   <!-- jQuery Core -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <!-- Popper and Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+  <!-- Icon support -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+  <script>
+    var dt = new Date();
+    document.getElementById("tanggalwaktu").innerHTML = ("0" + dt.getDate()).slice(-2) + "/" + ("0" + (dt.getMonth() + 1)).slice(-2) + "/" + dt.getFullYear() + "  " + ("0" + dt.getHours()).slice(-2) + ":" + ("0" + dt.getMinutes()).slice(-2);
+  </script>
 
   <script type="text/javascript">
-    $(document).ready(function() {
+    $(document).ready(function () {
       // tampilkan jumlah antrian
       $('#antrian').load('get_antrian.php');
 
       // proses insert data
-      $('#insert').on('click', function() {
+      $('#insert').on('click', function () {
         $.ajax({
           type: 'POST',                     // mengirim data dengan method POST
           url: 'insert.php',                // url file proses insert data
-          success: function(result) {       // ketika proses insert data selesai
+          success: function (result) {       // ketika proses insert data selesai
             // jika berhasil
             if (result === 'Sukses') {
               // tampilkan jumlah antrian
