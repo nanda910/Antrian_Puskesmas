@@ -1,81 +1,66 @@
-<!doctype html>
-<html lang="en" class="h-100">
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-gray-50">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Aplikasi Antrian Berbasis Web">
   <meta name="author" content="#">
 
-  <!-- Title -->
   <title>Aplikasi Antrian Berbasis Web</title>
 
   <!-- Favicon icon -->
   <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-
-  <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
-
-  <!-- Custom Style -->
-  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="d-flex flex-column h-100">
-  <main class="flex-shrink-0">
-    <div class="container pt-5">
-      <!-- tampilkan pesan selamat datang -->
-      <div class="alert alert-light d-flex align-items-center mb-5" role="alert">
-        <i class="bi bi-file-medical text-success me-3 fs-3"></i>
+<body class="flex flex-col min-h-screen">
+  <main class="flex-grow">
+    <div class="container mx-auto pt-10 px-4">
+      <!-- Alert -->
+      <div class="flex items-center bg-white shadow-md rounded-lg p-5 mb-10">
+        <div class="text-green-500 text-3xl mr-4">
+          <i class="bi bi-file-medical"></i>
+        </div>
         <div>
-          Selamat Datang di <strong>Aplikasi Antrian Panggilan Klinik John Banting</strong>. Silahkan pilih halaman yang ingin ditampilkan.
+          <p class="text-lg font-semibold">Selamat Datang di <strong>Aplikasi Antrian Panggilan Klinik John Banting</strong>. Silahkan pilih halaman yang ingin ditampilkan.</p>
         </div>
       </div>
 
-      <div class="row gx-5">
-        <!-- link halaman nomor antrian -->
-        <div class="col-lg-6 mb-4">
-          <div class="card border-0 shadow-sm">
-            <div class="card-body p-5">
-              <div class="feature-icon-1 bg-success bg-gradient mb-4">
-                <i class="bi-people"></i>
-              </div>
-              <h3>Nomor Antrian Klinik John Banting</h3>
-              <p class="mb-4">Halaman Nomor Antrian digunakan pengunjung Klinik John Banting untuk mengambil nomor antrian.</p>
-              <a href="nomor-antrian" class="btn btn-success rounded-pill px-4 py-2">
-                Tampilkan <i class="bi-chevron-right ms-2"></i>
-              </a>
+      <!-- Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Nomor Antrian Card -->
+        <div class="bg-white shadow-md rounded-lg overflow-hidden">
+          <div class="p-6">
+            <div class="bg-green-500 text-white rounded-full w-12 h-12 flex items-center justify-center mb-4">
+              <i class="bi bi-people text-xl"></i>
             </div>
+            <h3 class="text-xl font-semibold mb-2">Nomor Antrian Klinik John Banting</h3>
+            <p class="text-gray-600 mb-4">Halaman Nomor Antrian digunakan pengunjung Klinik John Banting untuk mengambil nomor antrian.</p>
+            <a href="nomor-antrian" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-full inline-flex items-center">
+              Tampilkan <i class="bi bi-chevron-right ml-2"></i>
+            </a>
           </div>
         </div>
-        <!-- link halaman panggilan antrian -->
-        <div class="col-lg-6 mb-4">
-          <div class="card border-0 shadow-sm">
-            <div class="card-body p-5">
-              <div class="feature-icon-1 bg-success bg-gradient mb-4">
-                <i class="bi-mic"></i>
-              </div>
-              <h3>Panggilan Antrian Klinik John Banting</h3>
-              <p class="mb-4">Halaman Panggilan Antrian digunakan petugas Klinik John Banting untuk memanggil antrian pengunjung.</p>
-              <a href="panggilan-antrian" class="btn btn-success rounded-pill px-4 py-2">
-                Tampilkan <i class="bi-chevron-right ms-2"></i>
-              </a>
+
+        <!-- Panggilan Antrian Card -->
+        <div class="bg-white shadow-md rounded-lg overflow-hidden">
+          <div class="p-6">
+            <div class="bg-green-500 text-white rounded-full w-12 h-12 flex items-center justify-center mb-4">
+              <i class="bi bi-mic text-xl"></i>
             </div>
+            <h3 class="text-xl font-semibold mb-2">Panggilan Antrian Klinik John Banting</h3>
+            <p class="text-gray-600 mb-4">Halaman Panggilan Antrian digunakan petugas Klinik John Banting untuk memanggil antrian pengunjung.</p>
+            <a href="panggilan-antrian" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-full inline-flex items-center">
+              Tampilkan <i class="bi bi-chevron-right ml-2"></i>
+            </a>
           </div>
         </div>
       </div>
     </div>
   </main>
-
-  <!-- Popper and Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
 </body>
 
 </html>
